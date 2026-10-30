@@ -1,11 +1,12 @@
-# gitignore-gen
+![ART Logo](./logo-small.png)
+
+# GITIGNORE-GEN version by CROFT
 
 CLI-генератор `.gitignore` по стеку проекта.
 
+[![Live Demo](https://img.shields.io/badge/demo-live-blue)](https://obladaet-ru.github.io/gitignore-gen/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
-[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-success)](https://www.npmjs.com/package/gitignore-gen)
 
 `gitignore-gen` — CLI-утилита на TypeScript, которая сканирует директорию, определяет стек проекта по сигнальным файлам и собирает читаемый `.gitignore` из готовых шаблонов.
 
