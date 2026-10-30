@@ -1,69 +1,49 @@
-# Gitignore-Generator
-[![License: MIT]
-(https://img.shields.io/badge/License-MIT-yellow.svg)]
-(https://opensource.org/licenses/MIT)
+![Логотип](./logo-small.png)
 
-> **gitignore-gen** — CLI-утилита для автоматической генерации `.gitignore` на основе определения стека проекта.
+# gitignore-gen
+
+CLI-генератор `.gitignore` по стеку проекта.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-success)](https://www.npmjs.com/package/gitignore-gen)
+
+`gitignore-gen` — CLI-утилита на TypeScript, которая сканирует директорию, определяет стек проекта по сигнальным файлам и собирает читаемый `.gitignore` из готовых шаблонов.
+
+---
+
+## Сайт(DEMO)
+https://obladaet-ru.github.io/gitignore-gen/
+
+## Содержание
+
+- [Возможности](#возможности)
+- [Установка](#установка)
+- [Использование](#использование)
+- [Флаги CLI](#флаги-cli)
+- [Поддерживаемые стеки](#поддерживаемые-стеки)
+- [Как это работает](#как-это-работает)
+- [Структура проекта](#структура-проекта)
+- [Разработка](#разработка)
+- [Лицензия](#лицензия)
+
+---
 
 ## Возможности
 
-- 🎯 Автоматическое определение языка/фреймворка по файлам в проекте
-- 📦 Поддержка стеков: Node.js, Python, Go, Rust, Java, Docker
-- 🎨 Шаблоны IDE (VS Code, JetBrains) и ОС (macOS, Windows, Linux)
-- 🚀 Простой CLI с поддержкой флагов
-- 📝 Чистый TypeScript с тестами
+- **Автоопределение стека** — 27 правил сопоставляют имена файлов в корне проекта: `package.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`, `pom.xml`, `Dockerfile` и другие.
+- **6 языковых шаблонов** — Node.js/TypeScript, Python, Go, Rust, Java (Maven/Gradle) и Docker — с артефактами сборки, кэшами и lock-файлами.
+- **IDE и ОС по умолчанию** — секции VS Code, JetBrains, Emacs/Vim и macOS/Windows/Linux добавляются автоматически и отключаются флагами `--no-ide` / `--no-os`.
+- **Детерминированный вывод** — `sortKeys()` приводит шаблоны к фиксированному порядку, поэтому повторная генерация даёт идентичный файл. Удобно для code review.
+- **Защита от перезаписи** — если `.gitignore` уже существует, утилита не тронет его без флага `--force`. Флаг `--dry-run` покажет результат, ничего не записывая.
+- **Ноль зависимостей** — только стандартная библиотека Node.js: `fs`, `path`, `process`. Быстрый старт, маленький bundle, никаких supply-chain сюрпризов.
 
-## Быстрый старт
+---
+
+## Установка
+
+### Глобально через npm
 
 ```bash
-# Установка
 npm install -g gitignore-gen
-
-# Генерация .gitignore в текущей директории
-gitignore-gen
-
-# Указание директории
-gitignore-gen ./my-project
-
-# Без шаблонов IDE и ОС
-gitignore-gen --no-ide --no-os
-```
-
-## Разработка
-
-```bash
-# Установка зависимостей
-npm install
-
-# Линтинг и проверка типов
-npm run lint
-npm run typecheck
-
-# Тесты
-npm test
-
-# Сборка
-npm run build
-
-# Полный чек
-npm run check
-```
-
-## Структура проекта
-
-```
-gitignore-gen/
-├── src/
-│   ├── cli/           # Точка входа, CLI через commander
-│   ├── detector/      # Определение стека по файлам
-│   ├── templates/     # Шаблоны для разных стеков
-│   ├── writer/        # Генерация .gitignore
-│   ├── types/         # Общие типы
-│   └── utils/         # Утилиты (logger, fs)
-├── tests/             # Unit-тесты
-└── package.json
-```
-
-## License
-
-MIT
