@@ -1,0 +1,54 @@
+# Node.js / TypeScript
+# Node.js / TypeScript
+node_modules/
+/dist/
+/build/
+/coverage/
+*.tsbuildinfo
+.npm/
+.pnpm-store/
+.eslintcache
+.nyc_output/
+.next/
+.nuxt/
+.output/
+.svelte-kit/
+*.log
+
+# IDE (JetBrains / VS Code)
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Emacs / Vim
+*~
+*.swp
+*.swo
+
+# OS (macOS / Windows / Linux)
+# macOS
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash*/
+*~
